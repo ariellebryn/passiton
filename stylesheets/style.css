@@ -2,3 +2,222 @@
 html, body {
   width: 100%;
   background-color: #00B4FF; }
+
+h2 {
+  font-family: "Hind", sans-serif;
+  color: #ffffff;
+  font-size: 2.3em;
+  font-weight: 700;
+  text-align: center; }
+
+.hint {
+  opacity: .8;
+  font-size: 0.5em;
+  font-weight: normal; }
+
+/** HEADER **/
+.header {
+  width: 100%;
+  height: 10%;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2%;
+  box-sizing: border-box; }
+
+.header span {
+  display: inline-block;
+  width: 33%;
+  text-align: center; }
+
+span.title {
+  font-weight: 800;
+  text-align: left; }
+
+/** FORM **/
+.form {
+  padding-top: 5%;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto; }
+
+.form .answers {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5%;
+  overflow: hidden; }
+
+.form .answers .answer {
+  border-radius: 10px;
+  border: 3px solid white;
+  font-family: "Hind", sans-serif;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #ffffff;
+  box-sizing: border-box;
+  width: 15%;
+  min-width: 15%;
+  height: 100px;
+  margin: 1%; }
+
+/** RADIO BUTTON STYLE **/
+.form .answers .answer label {
+  width: 100%;
+  height: 100%;
+  position: relative; }
+
+.form .answers .answer label span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 5%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0);
+  -webkit-transition: background-color 0.1s, color 0.1s;
+          transition: background-color 0.1s, color 0.1s; }
+
+.form .answers .answer label input {
+  position: absolute;
+  top: -5000px; }
+
+.form .answers .answer:hover, .form .answers .answer label:hover {
+  cursor: pointer; }
+
+.form .answers .answer:hover, .form .answers .answer label input:checked + span {
+  background-color: white;
+  color: #00B4FF; }
+
+/** TEXT INPUT STYLE **/
+input[type=text] {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 5%;
+  position: relative;
+  border-radius: 10px;
+  font-family: "Hind", sans-serif;
+  font-size: 1.1em;
+  border: 0;
+  padding: 1%;
+  box-sizing: border-box; }
+
+/** TEXTAREA STYLE **/
+textarea {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 5%;
+  position: relative;
+  height: 150px;
+  border-radius: 10px;
+  font-family: "Hind", sans-serif;
+  font-size: 1.1em;
+  border: 0;
+  padding: 1%;
+  box-sizing: border-box;
+  resize: vertical; }
+
+/** CONTINUE BUTTON STYLE **/
+.continue {
+  margin: 0 auto;
+  margin-top: 10%;
+  border-radius: 10px;
+  border: 3px solid white;
+  font-family: "Hind", sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #00B4FF;
+  box-sizing: border-box;
+  width: 15%;
+  background-color: white;
+  text-align: center;
+  height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 1;
+  -webkit-transition: opacity 0.1s;
+          transition: opacity 0.1s; }
+
+.continue.invalid {
+  opacity: 0.5; }
+
+.continue:hover {
+  cursor: pointer;
+  opacity: 0.7; }
+
+/** MEDIA QUERIES **/
+@media only screen and (max-width: 1000px) {
+  .form .answers .answer {
+    width: 30%;
+    min-width: 30%; }
+
+  .continue {
+    width: 30%; } }
+@media only screen and (max-width: 750px) {
+  .form .answers .answer {
+    width: 48%;
+    min-width: 48%; }
+
+  .continue {
+    width: 48%; } }
+@media only screen and (max-width: 690px) {
+  .form {
+    padding: 4%;
+    box-sizing: border-box; }
+
+  .form .answers .answer {
+    min-width: 98%; }
+
+  textarea, input[type=text], .continue, .form .answers .answer {
+    width: 98%; } }

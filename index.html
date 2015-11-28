@@ -15,12 +15,67 @@
         <title>#PASSITON Card Check In</title>
     </head>
     <body>
-        <div class="grid grid-pad">
-            
+        <div class="header">
+            <span class="title">#PASSITON</span>
+            <span>CARD CHECK IN</span>
+            <span></span>
+        </div>
+        <div class="form">
+            <!--
+<h2>How did you get the card? <span class="hint">(REQUIRED)</span></h2>
+<div class="answers">
+<div class="answer"><label><input type="radio" name="from" value="1"><span>FROM A STRANGER</span></label></div>
+<div class="answer"><label><input type="radio" name="from" value="2"><span>FROM SOMEONE I KNOW</span></label></div>
+<div class="answer"><label><input type="radio" name="from" value="3"><span>FROM A DISPENSER</span></label></div>
+<div class="answer"><label><input type="radio" name="from" value="4"><span>FOUND IT</span></label></div>
+<div class="answer"><label><input type="radio" name="from" value="5"><span>OTHER</span></label></div>
+</div>
+-->
+            <!--
+<h2>Describe your experience getting the card.</h2>
+<textarea placeholder="Give a short description of your experience."></textarea>
+-->
+            <h2>Where were you when you got this card?</h2>
+            <input type="text" id="inLoc"/>
+            <div class="continue">CONTINUE</div>
         </div>
 
         <!-- SCRIPTS -->
         <script src="https://fb.me/react-0.14.3.js"></script>
         <script src="https://fb.me/react-dom-0.14.3.js"></script>
+        <script>
+            var input = document.getElementById("inLoc");
+
+            function showPosition(position) {
+                var location = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                var geocoder = new google.maps.Geocoder;
+                geocoder.geocode({'location': location}, function(results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        if (results[1]) {
+                            input.value = results[1].formatted_address;
+                        } else {
+                            window.alert('No results found');
+                        }
+                    } else {
+                        window.alert('Geocoder failed due to: ' + status);
+                    }
+                });
+            }
+
+            function getLocation() {
+                loadUp();
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                }
+            }
+
+            function loadUp() {
+                var autocomplete = new google.maps.places.Autocomplete(input);
+            }
+
+        </script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-eIjThhLYsL0mc4cLgz6bLIyoMaoLaLI&libraries=places&callback=getLocation">
+        </script>
     </body>
 </html>
