@@ -20,30 +20,57 @@
             <span>CARD CHECK IN</span>
             <span></span>
         </div>
-        <div class="form">
-            <!--
-<h2>How did you get the card? <span class="hint">(REQUIRED)</span></h2>
-<div class="answers">
-<div class="answer"><label><input type="radio" name="from" value="1"><span>FROM A STRANGER</span></label></div>
-<div class="answer"><label><input type="radio" name="from" value="2"><span>FROM SOMEONE I KNOW</span></label></div>
-<div class="answer"><label><input type="radio" name="from" value="3"><span>FROM A DISPENSER</span></label></div>
-<div class="answer"><label><input type="radio" name="from" value="4"><span>FOUND IT</span></label></div>
-<div class="answer"><label><input type="radio" name="from" value="5"><span>OTHER</span></label></div>
-</div>
--->
-            <!--
-<h2>Describe your experience getting the card.</h2>
-<textarea placeholder="Give a short description of your experience."></textarea>
--->
-            <h2>Where were you when you got this card?</h2>
-            <input type="text" id="inLoc"/>
-            <div class="continue">CONTINUE</div>
+        <div id="container">
+            <div class="form">
+                <h2>Where were you when you got this card? <span class="hint">(REQUIRED)</span></h2>
+                <div class="inner">
+                    <input type="text" id="inLoc"/>
+                </div>
+                <div class="continue">CONTINUE</div>
+            </div>
+            <div class="form">
+                <h2>How did you get the card? <span class="hint">(REQUIRED)</span></h2>
+                <div class="inner">
+                    <div class="answers">
+                        <div class="answer"><label><input type="radio" name="from" value="1"><span>FROM A STRANGER</span></label></div>
+                        <div class="answer"><label><input type="radio" name="from" value="2"><span>FROM SOMEONE I KNOW</span></label></div>
+                        <div class="answer"><label><input type="radio" name="from" value="3"><span>FROM A DISPENSER</span></label></div>
+                        <div class="answer"><label><input type="radio" name="from" value="4"><span>FOUND IT</span></label></div>
+                        <div class="answer"><label><input type="radio" name="from" value="5"><span>OTHER</span></label></div>
+                    </div>
+                </div>
+                <div class="continue">CONTINUE</div>
+            </div>
+            <div class="form">
+                <h2>Describe your experience getting the card.</h2>
+                <div class="inner">
+                    <textarea placeholder="Give a short description of your experience."></textarea>
+                </div>
+                <div class="continue">CONTINUE</div>
+            </div>
         </div>
-
+        
         <!-- SCRIPTS -->
         <script src="https://fb.me/react-0.14.3.js"></script>
         <script src="https://fb.me/react-dom-0.14.3.js"></script>
         <script>
+            /* FORM TRANSITION */
+            var container = document.getElementById("container");
+            container.style.WebkitTransform = "translateX(0)";
+            var formWidth = 100/document.querySelectorAll(".form").length;
+            console.log(formWidth);
+            var leftPos = container.style.left;
+            var continueBtns = document.querySelectorAll(".continue");
+            
+            for (var i = 0; i < continueBtns.length; i++) {
+                continueBtns[i].addEventListener("click", function() {
+                    leftPos -= 100;
+                    container.style.left = leftPos + "%";
+                    console.log(container.style.left);
+                });
+            }
+            
+            /* GEOLOCATION */
             var input = document.getElementById("inLoc");
 
             function showPosition(position) {

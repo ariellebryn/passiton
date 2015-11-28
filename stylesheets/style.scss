@@ -10,9 +10,15 @@ $body-fonts: 'Hind', sans-serif;
 $btn-height: 100px;
 $transition-time: 0.1s;
 
+$num-questions: 3;
+$form-container-width: 100% * $num-questions;
+$form-width: 100%/$num-questions;
+
 html, body {
     width: 100%;
+    height: 100%;
     background-color: $main-color;
+    overflow-x: hidden;
 }
 
 h2 {
@@ -55,12 +61,33 @@ span.title {
     text-align: left;
 }
 
+/** FORM CONTAINER **/
+#container {
+    box-sizing: border-box;
+    padding-top: 8%;
+    position: relative;
+    height: 90%;
+    width: $form-container-width;
+    clear: both;
+    zoom: 1;
+//    transform: translateX(0);
+    left: 0;
+    transition: left 0.25s;
+}
+
 /** FORM **/
 .form {
-    padding-top: 5%;
-    width: 100%;
-	max-width: 1140px;
+    position: relative;
+    width: $form-width;
     margin: 0 auto;
+    float: left;
+    height: 100%;
+}
+
+.inner {
+    position: relative;
+    width: 100%;
+    height: 40%;
 }
 
 .form .answers {
@@ -90,7 +117,11 @@ span.title {
 
 /** RADIO BUTTON STYLE **/
 .form .answers .answer label {
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
     height: 100%;
     position: relative;
 }
@@ -157,8 +188,9 @@ textarea {
 
 /** CONTINUE BUTTON STYLE **/
 .continue {
+    display: block;
     margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 3%;
     border-radius: 10px;
     border: 3px solid white;
     font-family: $body-fonts;
@@ -196,6 +228,10 @@ textarea {
     .continue {
         width: 30%;
     }
+    
+    .inner {
+        height: 55%;
+    }
 }
 
 @media only screen and (max-width: 750px) {
@@ -206,6 +242,10 @@ textarea {
     
     .continue {
         width: 48%;
+    }
+    
+    .inner {
+        height: 65%;
     }
 }
 
@@ -221,5 +261,9 @@ textarea {
     
     textarea, input[type=text], .continue, .form .answers .answer  {
         width: 98%;
+    }
+    
+    .inner {
+        height: auto;
     }
 }

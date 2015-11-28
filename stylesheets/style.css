@@ -1,7 +1,9 @@
 /** PASSITON STYLESHEET **/
 html, body {
   width: 100%;
-  background-color: #00B4FF; }
+  height: 100%;
+  background-color: #00B4FF;
+  overflow-x: hidden; }
 
 h2 {
   font-family: "Hind", sans-serif;
@@ -47,12 +49,31 @@ span.title {
   font-weight: 800;
   text-align: left; }
 
+/** FORM CONTAINER **/
+#container {
+  box-sizing: border-box;
+  padding-top: 8%;
+  position: relative;
+  height: 90%;
+  width: 300%;
+  clear: both;
+  zoom: 1;
+  left: 0;
+  -webkit-transition: left 0.25s;
+          transition: left 0.25s; }
+
 /** FORM **/
 .form {
-  padding-top: 5%;
+  position: relative;
+  width: 33.33333%;
+  margin: 0 auto;
+  float: left;
+  height: 100%; }
+
+.inner {
+  position: relative;
   width: 100%;
-  max-width: 1140px;
-  margin: 0 auto; }
+  height: 40%; }
 
 .form .answers {
   position: relative;
@@ -90,7 +111,20 @@ span.title {
 
 /** RADIO BUTTON STYLE **/
 .form .answers .answer label {
-  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
   height: 100%;
   position: relative; }
 
@@ -160,8 +194,9 @@ textarea {
 
 /** CONTINUE BUTTON STYLE **/
 .continue {
+  display: block;
   margin: 0 auto;
-  margin-top: 10%;
+  margin-top: 3%;
   border-radius: 10px;
   border: 3px solid white;
   font-family: "Hind", sans-serif;
@@ -203,14 +238,20 @@ textarea {
     min-width: 30%; }
 
   .continue {
-    width: 30%; } }
+    width: 30%; }
+
+  .inner {
+    height: 55%; } }
 @media only screen and (max-width: 750px) {
   .form .answers .answer {
     width: 48%;
     min-width: 48%; }
 
   .continue {
-    width: 48%; } }
+    width: 48%; }
+
+  .inner {
+    height: 65%; } }
 @media only screen and (max-width: 690px) {
   .form {
     padding: 4%;
@@ -220,4 +261,7 @@ textarea {
     min-width: 98%; }
 
   textarea, input[type=text], .continue, .form .answers .answer {
-    width: 98%; } }
+    width: 98%; }
+
+  .inner {
+    height: auto; } }
